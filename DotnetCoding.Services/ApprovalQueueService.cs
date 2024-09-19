@@ -15,6 +15,11 @@ public class ApprovalQueueService:IApprovalQueueService
             _productRepository = productRepository;
         }
 
+        public async Task<IEnumerable<ApprovalQueue>> GetApprovalQueue()
+        {
+            return await _approvalQueueRepository.GetApprovalQueue();
+        }
+
         public async Task<IEnumerable<ApprovalQueue>> GetAllQueueItems()
         {
             return await _approvalQueueRepository.GetAllQueueItems();
@@ -75,5 +80,10 @@ public class ApprovalQueueService:IApprovalQueueService
 
             await _productRepository.UpdateProduct(product);
             await _approvalQueueRepository.UpdateQueueItem(queueItem);
+        }
+
+        public async Task ApproveOrReject(int approvalQueueId, bool approve)
+        {
+            await _approvalQueueRepository.ApproveOrReject(approvalQueueId, approve);
         }
 }

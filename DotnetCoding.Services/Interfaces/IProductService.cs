@@ -10,6 +10,9 @@ namespace DotnetCoding.Services.Interfaces
     public interface IProductService
     {
         Task<IEnumerable<ProductDetails>> GetAllProducts();
+        Task<IEnumerable<ProductDetails>> GetFilteredProducts(string productName, int? minPrice, int? maxPrice, DateTime? startDate, DateTime? endDate);
+
+
         Task<IEnumerable<ProductDetails>> GetActiveProducts();
         Task<ProductDetails> GetProduct(int productId);
         Task<int> CreateProduct(ProductDetails product);

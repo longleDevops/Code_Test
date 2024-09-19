@@ -43,6 +43,27 @@ namespace DotnetCoding.Controllers
         }
 
         /// <summary>
+        /// Search for products with filtering options
+        /// </summary>
+        /// <param name="productName">Name of the product</param>
+        /// <param name="minPrice">Minimum price</param>
+        /// <param name="maxPrice">Maximum price</param>
+        /// <param name="startDate">Start date for creation date</param>
+        /// <param name="endDate">End date for creation date</param>
+        /// <returns>List of filtered products</returns>
+        [HttpGet("search")]
+        public async Task<IActionResult> SearchProducts(
+            [FromQuery] string productName,
+            [FromQuery] int? minPrice,
+            [FromQuery] int? maxPrice,
+            [FromQuery] DateTime? startDate,
+            [FromQuery] DateTime? endDate)
+        {
+            var products = await _productService.GetFilteredProducts(productName, minPrice, maxPrice, startDate, endDate);
+            return Ok(products);
+        }
+        
+        /// <summary>
         /// Get details of a specific product by ID.
         /// </summary>
         [HttpGet("{id}")]
@@ -111,6 +132,30 @@ namespace DotnetCoding.Controllers
                 var result = await _productService.DeleteProduct(product);
                 if (result == 0) return BadRequest("Failed to delete product");
                 return Ok("Successfully delete the item");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        
+        [HttpGet("approval-queue")]
+        public async Task<IActionResult> GetApprovalQueue()
+        {
+            var approvalQueue = await _approvalQueueService.GetAllQueueItems();
+            return Ok(approvalQueue);
+        }
+
+        [HttpPost("approve-reject")]
+        public async Task<IActionResult> ApproveOrReject([FromBody] ApprovalRequestModel request)
+        {
+            if (request == null || !ModelState.IsValid)
+                return BadRequest("Invalid request.");
+
+            try
+            {
+                await _approvalQueueService.ApproveOrReject(request.ApprovalQueueId, request.Approve);
+                return Ok();
             }
             catch (Exception ex)
             {

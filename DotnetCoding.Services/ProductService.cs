@@ -38,6 +38,11 @@ namespace DotnetCoding.Services
             return await _unitOfWork.Products.GetProductById(productId);
         }
 
+        public async Task<IEnumerable<ProductDetails>> GetFilteredProducts(string productName, int? minPrice, int? maxPrice, DateTime? startDate, DateTime? endDate)
+        {
+            return await _unitOfWork.Products.GetFilteredProducts(productName, minPrice, maxPrice, startDate, endDate);
+        }
+        
         public async Task<int> CreateProduct(ProductDetails product)
         {
             if (product.ProductPrice > 10000)
@@ -106,5 +111,8 @@ namespace DotnetCoding.Services
             product.ProductStatus = "In Queue";
             return await _unitOfWork.Products.UpdateProduct(product);
         }
+        
+        
+
     }
 }
