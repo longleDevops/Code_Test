@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Y3ObfxZKHMeTwSo7/tUXcJC+NRh8skao1TH13SnuJJNzW6MXAPPW5EFieKomElUGoS5AgE6g68ybBoQdMQ94rg==",
+  "success": true,
+  "projectFilePath": "/Users/lethienlong/Downloads/DotnetCoding/Project.Core/Project.Core.csproj",
+  "expectedPackageFiles": [
+    "/Users/lethienlong/.nuget/packages/microsoft.netcore.app.ref/6.0.32/microsoft.netcore.app.ref.6.0.32.nupkg.sha512",
+    "/Users/lethienlong/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.32/microsoft.aspnetcore.app.ref.6.0.32.nupkg.sha512"
+  ],
+  "logs": []
+}
