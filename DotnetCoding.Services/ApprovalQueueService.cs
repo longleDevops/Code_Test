@@ -82,8 +82,53 @@ public class ApprovalQueueService:IApprovalQueueService
             await _approvalQueueRepository.UpdateQueueItem(queueItem);
         }
 
-        public async Task ApproveOrReject(int approvalQueueId, bool approve)
+        public async Task ApproveOrReject(int id, bool approve)
         {
-            await _approvalQueueRepository.ApproveOrReject(approvalQueueId, approve);
+            var queueItem = await _approvalQueueRepository.GetQueueItemById(id);
+            if (queueItem == null)
+                throw new Exception("Approval queue item not found.");
+
+            var product = await _productRepository.GetProductById(queueItem.ProductId);
+            if (product == null)
+                throw new Exception("Product not found.");
+
+            if (approve)
+            {
+                // Handle approval logic
+                switch (queueItem.ActionType)
+                {
+                    case "Create":
+                        product.ProductStatus = "Active";
+                        await _productRepository.CreateProduct(product);
+                        break;
+                    case "Update":
+                        product.ProductStatus = "Active";
+                        await _productRepository.UpdateProduct(product);
+                        break;
+                    case "Delete":
+                        await _productRepository.DeleteProduct(product);
+                        break;
+                }
+            }
+            else
+            {
+                // Handle rejection logic
+                switch (queueItem.ActionType)
+                {
+                    case "Create":
+                        // Logic to handle rejection of a new product creation
+                        break;
+                    case "Update":
+                        product.ProductStatus = "Active"; // Revert to original state if needed
+                        await _productRepository.UpdateProduct(product);
+                        break;
+                    case "Delete":
+                        // Logic to handle rejection of a product deletion
+                        break;
+                }
+            }
+
+            // Remove the item from the approval queue
+            await _approvalQueueRepository.RemoveFromQueue(product.Id);
         }
 }

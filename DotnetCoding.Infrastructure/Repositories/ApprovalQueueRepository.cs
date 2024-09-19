@@ -47,40 +47,13 @@ public class ApprovalQueueRepository : IApprovalQueueRepository
         return await _dbContext.SaveChangesAsync();
     }
     
-    public async Task ApproveOrReject(int id, bool approve)
+    public async Task<int> RemoveFromQueue(int approvalQueueId)
     {
-        var approvalItem = await _dbContext.ApprovalQueues.FindAsync(id);
-        if (approvalItem == null) return;
-
-        if (approve)
-        {
-            approvalItem.Status = "Approved";
-            var product = await _dbContext.Products.FindAsync(approvalItem.ProductId);
-
-            if (product == null) return;
-
-            switch (approvalItem.ActionType)
-            {
-                case "Create":
-                    product.ProductStatus = "Active";
-                    _dbContext.Products.Add(product);
-                    break;
-                case "Update":
-                    product.ProductStatus = "Active";
-                    _dbContext.Products.Update(product);
-                    break;
-                case "Delete":
-                    _dbContext.Products.Remove(product);
-                    break;
-            }
-        }
-        else
-        {
-            approvalItem.Status = "Rejected";
-        }
-
-        _dbContext.ApprovalQueues.Update(approvalItem);
-        await _dbContext.SaveChangesAsync();
+        var queueItem = await _dbContext.ApprovalQueues.FindAsync(approvalQueueId);
+        _dbContext.ApprovalQueues.Remove(queueItem);
+        return await _dbContext.SaveChangesAsync();
     }
+    
+    
 
 }

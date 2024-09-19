@@ -10,6 +10,6 @@ public interface IApprovalQueueRepository
     Task<ApprovalQueue> GetQueueItemById(int queueId);
     Task<int> AddToQueue(ApprovalQueue approvalQueue);
     Task<int> UpdateQueueItem(ApprovalQueue approvalQueue);
-     Task ApproveOrReject(int id, bool approve);
+    Task<int> RemoveFromQueue(int approvalQueueId);
 
 }
