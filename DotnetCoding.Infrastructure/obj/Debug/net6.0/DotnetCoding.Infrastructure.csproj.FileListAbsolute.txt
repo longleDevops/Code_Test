@@ -1,0 +1,17 @@
+/Users/lethienlong/Downloads/DotnetCoding/DotnetCoding.Infrastructure/bin/Debug/net6.0/DotnetCoding.Infrastructure.deps.json
+/Users/lethienlong/Downloads/DotnetCoding/DotnetCoding.Infrastructure/bin/Debug/net6.0/DotnetCoding.Infrastructure.runtimeconfig.json
+/Users/lethienlong/Downloads/DotnetCoding/DotnetCoding.Infrastructure/bin/Debug/net6.0/DotnetCoding.Infrastructure.dll
+/Users/lethienlong/Downloads/DotnetCoding/DotnetCoding.Infrastructure/bin/Debug/net6.0/DotnetCoding.Infrastructure.pdb
+/Users/lethienlong/Downloads/DotnetCoding/DotnetCoding.Infrastructure/bin/Debug/net6.0/DotnetCoding.Core.dll
+/Users/lethienlong/Downloads/DotnetCoding/DotnetCoding.Infrastructure/bin/Debug/net6.0/DotnetCoding.Core.pdb
+/Users/lethienlong/Downloads/DotnetCoding/DotnetCoding.Infrastructure/obj/Debug/net6.0/DotnetCoding.Infrastructure.csproj.AssemblyReference.cache
+/Users/lethienlong/Downloads/DotnetCoding/DotnetCoding.Infrastructure/obj/Debug/net6.0/DotnetCoding.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/lethienlong/Downloads/DotnetCoding/DotnetCoding.Infrastructure/obj/Debug/net6.0/DotnetCoding.Infrastructure.AssemblyInfoInputs.cache
+/Users/lethienlong/Downloads/DotnetCoding/DotnetCoding.Infrastructure/obj/Debug/net6.0/DotnetCoding.Infrastructure.AssemblyInfo.cs
+/Users/lethienlong/Downloads/DotnetCoding/DotnetCoding.Infrastructure/obj/Debug/net6.0/DotnetCoding.Infrastructure.csproj.CoreCompileInputs.cache
+/Users/lethienlong/Downloads/DotnetCoding/DotnetCoding.Infrastructure/obj/Debug/net6.0/DotnetCo.839A7467.Up2Date
+/Users/lethienlong/Downloads/DotnetCoding/DotnetCoding.Infrastructure/obj/Debug/net6.0/DotnetCoding.Infrastructure.dll
+/Users/lethienlong/Downloads/DotnetCoding/DotnetCoding.Infrastructure/obj/Debug/net6.0/refint/DotnetCoding.Infrastructure.dll
+/Users/lethienlong/Downloads/DotnetCoding/DotnetCoding.Infrastructure/obj/Debug/net6.0/DotnetCoding.Infrastructure.pdb
+/Users/lethienlong/Downloads/DotnetCoding/DotnetCoding.Infrastructure/obj/Debug/net6.0/DotnetCoding.Infrastructure.genruntimeconfig.cache
+/Users/lethienlong/Downloads/DotnetCoding/DotnetCoding.Infrastructure/obj/Debug/net6.0/ref/DotnetCoding.Infrastructure.dll
